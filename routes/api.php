@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', 'UserController@show');
-Route::middleware('auth:sanctum')->get('/user/logged', 'UserController@isUserLogged');
+Route::get('/user', 'UserController@show')->middleware('auth:sanctum');
+Route::get('/user/logged', 'UserController@isUserLogged');
