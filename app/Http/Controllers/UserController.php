@@ -13,7 +13,11 @@ class UserController extends Controller
     }
 
     public function show() {
-        $currentUser = Auth::user();
-        return response()->json($currentUser);
+        $isUserLogged = Auth::check();
+        if ($isUserLogged) {
+            $currentUser = Auth::user();
+            return response()->json($currentUser);
+        }
+        return response()->json(null);
     }
 }
